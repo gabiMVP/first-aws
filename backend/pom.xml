@@ -33,7 +33,7 @@
 		<maven.compiler.target>21</maven.compiler.target>
 		<docker.username>gabrielagapie</docker.username>
 		<docker.image.name>firstproject</docker.image.name>
-		<docker.image.tag/>
+		<docker.image.tag>latest</docker.image.tag>
 	</properties>
 	<dependencies>
 		<dependency>
