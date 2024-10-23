@@ -186,23 +186,23 @@
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>3.3.1</version>
 				<configuration>
-<!--					<from>-->
-<!--						<image>elipse-temurin:21</image>-->
+					<from>
+						<image>elipse-temurin:21</image>
 <!--						<auth>-->
 <!--							<username>${secrets.DOCKERHUB_USERNAME}</username>-->
 <!--							<password>${secrets.DOCKERHUB_TOKEN }</password>-->
 <!--						</auth>-->
-<!--						<platforms>-->
-<!--							<platform>-->
-<!--								<architecture>amd64</architecture>-->
-<!--								<os>linux</os>-->
-<!--							</platform>-->
-<!--							<platform>-->
-<!--								<architecture>arm64</architecture>-->
-<!--								<os>linux</os>-->
-<!--							</platform>-->
-<!--						</platforms>-->
-<!--					</from>-->
+						<platforms>
+							<platform>
+								<architecture>amd64</architecture>
+								<os>linux</os>
+							</platform>
+							<platform>
+								<architecture>arm64</architecture>
+								<os>linux</os>
+							</platform>
+						</platforms>
+					</from>
 					<to>
 						<image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
 
