@@ -183,19 +183,19 @@
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>3.4.3</version>
 				<configuration>
-					<from>
+<!--					<from>-->
 <!--						<image>elipse-temurin:21</image>-->
-						<platforms>
-							<platform>
-								<architecture>amd64</architecture>
-								<os>linux</os>
-							</platform>
-							<platform>
-								<architecture>arm64</architecture>
-								<os>linux</os>
-							</platform>
-						</platforms>
-					</from>
+<!--						<platforms>-->
+<!--							<platform>-->
+<!--								<architecture>amd64</architecture>-->
+<!--								<os>linux</os>-->
+<!--							</platform>-->
+<!--							<platform>-->
+<!--								<architecture>arm64</architecture>-->
+<!--								<os>linux</os>-->
+<!--							</platform>-->
+<!--						</platforms>-->
+<!--					</from>-->
 					<to>
 						<image>docker.io/${organization.name}/${project.artifactId}:${project.version}</image>
 						<tags>
