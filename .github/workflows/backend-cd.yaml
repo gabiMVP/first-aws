@@ -1,14 +1,15 @@
-name: CI - Build Backend
+name: CD -backend deploy
+
 
 on:
-#  pull_request:
+  workflow_dispatch:
   push:
     branches:
-      - "main"
+      - main
     paths:
       - backend/**
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -29,7 +30,6 @@ jobs:
         working-directory: ./backend
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -40,10 +40,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: set build no
+        id: build-number
+        run: echo "BUILD_NUMBER=$(date '%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
+      - name: build package push with maven
+        run: mvn -ntp -B verify -D docker.image.tag = ${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
 
-
-      - name: build and test
-        run: mvn -ntp -B verify
-
- 
- 

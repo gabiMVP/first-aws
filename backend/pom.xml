@@ -9,9 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gabi</groupId>
-	<organization>
-		<name>gabrielagapie</name>
-	</organization>
+
 	<artifactId>firstproject</artifactId>
 	<version>0.0.1</version>
 	<name>firstProject</name>
@@ -30,7 +28,12 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+<!--		<java.version>21</java.version>-->
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+		<docker.username>gabrielagapie</docker.username>
+		<docker.image.name>firstproject</docker.image.name>
+		<docker.image.tag/>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -181,7 +184,7 @@
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.4.3</version>
+				<version>3.3.1</version>
 				<configuration>
 					<from>
 						<image>elipse-temurin:21</image>
@@ -197,7 +200,7 @@
 						</platforms>
 					</from>
 					<to>
-						<image>docker.io/${project.organization.name}/${project.artifactId}:${project.version}</image>
+						<image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
 						<tags>
 							<tag>latest</tag>
 						</tags>
