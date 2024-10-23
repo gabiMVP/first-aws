@@ -33,7 +33,7 @@
 		<maven.compiler.target>21</maven.compiler.target>
 		<docker.username>gabrielagapie</docker.username>
 		<docker.image.name>firstproject</docker.image.name>
-		<docker.image.tag>latest</docker.image.tag>
+		<docker.image.tag/>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -188,6 +188,10 @@
 				<configuration>
 					<from>
 						<image>elipse-temurin:21</image>
+						<auth>
+							<username>${secrets.DOCKERHUB_USERNAME}</username>
+							<token>${secrets.DOCKERHUB_TOKEN }</token>
+						</auth>
 						<platforms>
 							<platform>
 								<architecture>amd64</architecture>
@@ -201,6 +205,7 @@
 					</from>
 					<to>
 						<image>docker.io/${docker.username}/${docker.image.name}:${docker.image.tag}</image>
+
 						<tags>
 							<tag>latest</tag>
 						</tags>
