@@ -190,7 +190,7 @@
 						<image>elipse-temurin:21</image>
 						<auth>
 							<username>${secrets.DOCKERHUB_USERNAME}</username>
-							<token>${secrets.DOCKERHUB_TOKEN }</token>
+							<password>${secrets.DOCKERHUB_TOKEN }</password>
 						</auth>
 						<platforms>
 							<platform>
