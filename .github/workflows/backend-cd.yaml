@@ -45,4 +45,21 @@ jobs:
         run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
       - name: build package push with maven
         run: mvn -ntp -B verify -D docker.image.tag = ${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
-
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v21
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: ${{ secrets.EB_APPLICATION_NAME }}
+          environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
+          version_label: 12345
+          version_description: ${{github.SHA}}
+          region: ${{ secrets.REGION }}
+          deployment_package: Dockerrun.aws.json
+      - name: commit and push Dockerrun.aws.json
+        run: |
+          git config username user.name = github-actions
+          git config email user.name = github-actions@github.com
+          git add .
+          git commit -m "update Dockerrun.aws.json"
+          git push
