@@ -43,7 +43,7 @@ jobs:
 
 
       - name: build and test
-        run: mvn -ntp -B verify
+        run: mvn verify
 
  
  
