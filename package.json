@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@chakra-ui/react": "^3.0.2",
+    "@emotion/react": "^11.13.3"
+  }
+}
