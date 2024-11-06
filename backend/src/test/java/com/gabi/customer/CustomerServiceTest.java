@@ -48,7 +48,7 @@ class CustomerServiceTest {
         //Given
         //When
         int id  = 10;
-        Customer customer = new Customer(id,"alex","alex@gmail.com",20);
+        Customer customer = new Customer(id,"alex","alex@gmail.com",20,"male");
 
         //Then
         when(customerDao.getCustomerById(id)).thenReturn(Optional.of(customer));
@@ -63,7 +63,7 @@ class CustomerServiceTest {
         //Given
         //When
         int id  = 10;
-        Customer customer = new Customer(id,"alex","alex@gmail.com",20);
+        Customer customer = new Customer(id,"alex","alex@gmail.com",20,"male");
 
         //Then
         when(customerDao.getCustomerById(id)).thenReturn(Optional.empty());
@@ -86,7 +86,7 @@ class CustomerServiceTest {
 
 
         CustomerRegistrationRequest customerRegistrationRequest = new CustomerRegistrationRequest(
-                "alex", mail,20);
+                "alex", mail,20,"male");
 
 
 
@@ -115,7 +115,7 @@ class CustomerServiceTest {
 
 
         CustomerRegistrationRequest customerRegistrationRequest = new CustomerRegistrationRequest(
-                "alex", mail,20);
+                "alex", mail,20,"male");
 
 
 

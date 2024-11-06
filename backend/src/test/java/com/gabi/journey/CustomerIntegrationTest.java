@@ -35,7 +35,7 @@ public class CustomerIntegrationTest {
         int randomint = random.nextInt(10000);
         //create reqistration request
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                "alex","alex" +randomint +"@gmail.com",19
+                "alex","alex" +randomint +"@gmail.com",19,"male"
         );
         // send registration request
 
@@ -57,7 +57,7 @@ public class CustomerIntegrationTest {
                 .getResponseBody();
 //        make sure customer is present
 
-        Customer expectedCustomer  = new Customer(request.getName(),request.getEmail(),request.getAge());
+        Customer expectedCustomer  = new Customer(request.getName(),request.getEmail(),request.getAge(),request.getGender());
 
         assertThat(allcustomers)
                 .usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
@@ -87,7 +87,7 @@ public class CustomerIntegrationTest {
         int randomint = random.nextInt(10000);
         //create reqistration request
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                "alex","alex" +randomint +"@gmail.com",19
+                "alex","alex" +randomint +"@gmail.com",19,"male"
         );
         // send registration request
 
@@ -137,7 +137,7 @@ public class CustomerIntegrationTest {
         int randomint = random.nextInt(10000);
         //create reqistration request
         CustomerRegistrationRequest request = new CustomerRegistrationRequest(
-                "alex","alex" +randomint +"@gmail.com",19
+                "alex","alex" +randomint +"@gmail.com",19,"male"
         );
         // send registration request
 
@@ -167,7 +167,7 @@ public class CustomerIntegrationTest {
 
         randomint = random.nextInt(10000);
         CustomerUpdateRequest updateRequest = new CustomerUpdateRequest(
-                "alex3","alex" +randomint +"@gmail.com",192
+                "alex3","alex" +randomint +"@gmail.com",192,"male"
         );
         // update customer with IDS email
         webTestClient.put().uri("api/v1/customers/{id}", id).
@@ -178,7 +178,7 @@ public class CustomerIntegrationTest {
                 .expectStatus().isOk();
 
 
-        Customer expectedCustomerUpdated  = new Customer(id,updateRequest.name(),updateRequest.email(),updateRequest.age());
+        Customer expectedCustomerUpdated  = new Customer(id,updateRequest.name(),updateRequest.email(),updateRequest.age(),updateRequest.gender());
         //get customer with ID and check email is changed
         Customer responseBodyCustomer = webTestClient.get()
                 .uri("api/v1/customers/{id}", id)

@@ -185,7 +185,7 @@
 				<version>3.4.4</version>
 				<configuration>
 					<from>
-						<image>elipse-temurin:21-alpine</image>
+						<image>openjdk:21</image>
 						<platforms>
 							<platform>
 								<architecture>amd64</architecture>

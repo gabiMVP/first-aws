@@ -41,10 +41,11 @@ class CustomerRowMapperTest {
         when(resultSet.getString("name")).thenReturn("alex");
         when(resultSet.getString("email")).thenReturn("alex@gmail.com");
         when(resultSet.getInt("age")).thenReturn(19);
+        when(resultSet.getString("gender")).thenReturn("male");
         Customer customer = underTest.mapRow(resultSet,1);
 
         //Then
-        Customer expected = new Customer(10,"alex","alex@gmail.com",19);
+        Customer expected = new Customer(10,"alex","alex@gmail.com",19,"male");
         assertThat(customer).isEqualTo(expected);
     }
 }

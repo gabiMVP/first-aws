@@ -28,7 +28,7 @@ class CustomerJDBCDAOServiceTest extends AbstractTestContainerTest {
     @Test
     void selectAllCustomer() {
         //Given
-        Customer alex = new Customer("alex","alex@gmail.com",34);
+        Customer alex = new Customer("alex","alex@gmail.com",34,"male");
         //When
         underTest.insertCustomer(alex);
         List<Customer> customers = underTest.selectAllCustomer();
@@ -41,7 +41,7 @@ class CustomerJDBCDAOServiceTest extends AbstractTestContainerTest {
     @Test
     void insertCustomer() {
         //Given
-        Customer mihai = new Customer("mihai","mihai@gmail.com",34);
+        Customer mihai = new Customer("mihai","mihai@gmail.com",34,"male");
         //When
         underTest.insertCustomer(mihai);
         //Then

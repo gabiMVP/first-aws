@@ -23,7 +23,7 @@ public class CustomerJDBCDAOService implements CustomerDao{
     @Override
     public List<Customer> selectAllCustomer() {
         var sql = """
-                Select id,name,email, age from customer
+                Select id,name,email, age ,gender from customer
                 """;
 
         List<Customer> customers = jdbcTemplate.query(sql,customerRowMapper);
@@ -39,9 +39,9 @@ public class CustomerJDBCDAOService implements CustomerDao{
     @Override
     public void insertCustomer(Customer customer) {
         var sql = """
-                INSERT INTO customer(name, email, age) Values (?,?,?)
+                INSERT INTO customer(name, email, age,gender) Values (?,?,?,?)
                 """;
-        int update = jdbcTemplate.update(sql,customer.getName(),customer.getEmail(),customer.getAge());
+        int update = jdbcTemplate.update(sql,customer.getName(),customer.getEmail(),customer.getAge(),customer.getGender());
         System.out.println("Insert customer =" + update);
     }
 

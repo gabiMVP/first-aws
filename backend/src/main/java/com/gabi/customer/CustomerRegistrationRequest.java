@@ -4,11 +4,13 @@ public class CustomerRegistrationRequest {
     String name;
     String email;
     Integer age;
+    String gender;
 
-    public CustomerRegistrationRequest(String name, String email, Integer age) {
+    public CustomerRegistrationRequest(String name, String email, Integer age,String gender) {
         this.name = name;
         this.email = email;
         this.age = age;
+        this.gender = gender;
     }
 
     public String getName() {
@@ -33,5 +35,13 @@ public class CustomerRegistrationRequest {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

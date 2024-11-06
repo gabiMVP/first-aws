@@ -28,7 +28,7 @@ class CustomerRepositoryTest extends AbstractTestContainerTest {
     @Test
     void existsCustomerByEmail() {
         //Given
-        Customer alex = new Customer("gigica","gigica@gmail.com",34);
+        Customer alex = new Customer("gigica","gigica@gmail.com",34,"male");
         //When
         underTest.save(alex);
         //Then
@@ -39,7 +39,7 @@ class CustomerRepositoryTest extends AbstractTestContainerTest {
     @Test
     void existsCustomerByEmailFailsWhenUnknownMail() {
         //Given
-        Customer alex = new Customer("gigica","gigica@gmail.com",34);
+        Customer alex = new Customer("gigica","gigica@gmail.com",34,"male");
         //When
 
         assertThat(underTest.existsCustomerByEmail("mirica@gmail.com")).isFalse();

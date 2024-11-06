@@ -36,20 +36,25 @@ public  class Customer{
     )
     private int age;
 
+    private String gender;
+
+
     public Customer() {
     }
 
-    public Customer(Integer id,String name, String email, int age) {
+    public Customer(Integer id,String name, String email, int age,String gender) {
         this.id=id;
         this.name = name;
         this.email = email;
         this.age = age;
+        this.gender = gender;
     }
 
-    public Customer(String name, String email, int age) {
+    public Customer(String name, String email, int age,String gender) {
         this.name = name;
         this.email = email;
         this.age = age;
+        this.gender =gender;
     }
 
     public Integer getId() {
@@ -84,16 +89,24 @@ public  class Customer{
         this.age = age;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id && age == customer.age && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
+        return age == customer.age && Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(email, customer.email) && Objects.equals(gender, customer.gender);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, age);
+        return Objects.hash(id, name, email, age, gender);
     }
 }
