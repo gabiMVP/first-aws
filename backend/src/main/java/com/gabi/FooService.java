@@ -8,6 +8,7 @@ public class FooService {
     private final Main.Foo foo;
 
 
+
     public FooService(Main.Foo foo) {
         this.foo = foo;
     }
