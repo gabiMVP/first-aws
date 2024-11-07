@@ -14,7 +14,9 @@ import {
   Badge ,
 } from '@chakra-ui/react'
 
-export default function Card( {id,name,email,age}) {
+export default function Card( {id,name,email,age,gender}) {
+    const userGender = gender ==="male"?"men":"women";
+
   return (
     <Center py={6}>
       <Box
@@ -37,7 +39,8 @@ export default function Card( {id,name,email,age}) {
           <Avatar
             size={'xl'}
             src={
-              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+
+              `https://randomuser.me/api/portraits/thumb/${userGender}/${id}.jpg`
             }
             css={{
               border: '2px solid white',
