@@ -19,8 +19,6 @@ public class Main {
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class,args);
-
-
     }
 
 
@@ -32,6 +30,7 @@ public class Main {
             Customer mihai = new Customer("mihai","mihai@gmail.com",34,"male");
             List<Customer> customers = List.of(alex, mihai);
 //            repository.saveAll(customers);
+            System.out.println("PLOP PLOP");
         };
     }
 

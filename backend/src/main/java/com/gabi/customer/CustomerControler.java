@@ -27,6 +27,8 @@ public class CustomerControler {
     }
     @PostMapping
     public void addCustomer( @RequestBody CustomerRegistrationRequest request){
+        System.out.println(request.getGender());
+
         customerService.addCustomer(request);
     }
 
@@ -36,6 +38,7 @@ public class CustomerControler {
     }
     @PutMapping(path ="/{customerId}" )
     public void deleteCustomer(@PathVariable("customerId") Integer customerID,@RequestBody CustomerUpdateRequest request){
+        System.out.println(request);
         customerService.updateCustomer(customerID,request);
     }
 }

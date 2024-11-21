@@ -7,22 +7,28 @@ import {useEffect } from 'react'
 import {getCusomers} from './services/client.js'
 import SidebarWithHeader from './components/shared/Sidebar.jsx'
 import Card from './components/Card.jsx'
+import DrawerForm from './components/DrawerForm.jsx'
 function App() {
 
    const [customers, setCustomers] = useState([]);
    const[loading,setLoading] = useState(false);
 
-   useEffect( ()=>{
-       setLoading(true)
-    getCusomers().then( res => {
-         setCustomers(res.data)
-        }).catch(err => {
-            console.log(err)
-            }).finally( ()=>{
-                setLoading(false)
-                }
-            )
+    const fetchCustomers = () =>{
+               setLoading(true)
+            getCusomers().then( res => {
+                 setCustomers(res.data)
+                }).catch(err => {
+                    console.log(err)
+                    }).finally( ()=>{
+                        setLoading(false)
+                        }
+                    )
 
+
+        }
+
+   useEffect( ()=>{
+        fetchCustomers();
        },[] )
 
    if(loading){
@@ -43,7 +49,7 @@ function App() {
             <div>
                 <Text>No customers</Text>
             <SidebarWithHeader>
-
+                <DrawerForm fetchCustomers = {fetchCustomers}/>
             </SidebarWithHeader>
             </div>
             )
@@ -55,17 +61,20 @@ function App() {
         <div>
           <SidebarWithHeader>
               <Wrap>
+                  <DrawerForm fetchCustomers = {fetchCustomers} />
                                   {
                                       customers.map( (customer,index)=>(
                                            <WrapItem key = {index}>
                                           <Card
                                            {...customer}
+                                            fetchCustomers = {fetchCustomers}
                                           />
                                            </WrapItem>
                                           )
                                       )
                                   }
-                              </Wrap>
+
+              </Wrap>
           </SidebarWithHeader>
 
           </div>
